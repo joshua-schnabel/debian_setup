@@ -116,10 +116,43 @@ Problem in Anleitung: Keine " in /etc/mail.rc
 Needed for Apticron
 
 https://decatec.de/linux/linux-einfach-e-mails-versenden-mit-msmtp/
- 
+
+## Rootkits 
+
+sudo apt install rkhunter
+
+ALLOW_SSH_PROT_V1=0
+SCRIPTWHITELIST=/usr/bin/egrep
+SCRIPTWHITELIST=/usr/bin/fgrep
+SCRIPTWHITELIST=/usr/bin/which
+PKGMGR=DPKG
+MAIL-ON-WARNING
+
 ## ip tables
 
+apt-get install iptables-persistent
 
+https://gist.github.com/jirutka/3742890
+
+## docker
+
+https://docs.docker.com/engine/install/debian/
+https://docs.docker.com/engine/install/linux-postinstall/
+
+/etc/docker/daemon.json
+
+```
+{
+  "ipv6": true,
+  "fixed-cidr-v6": "fd00:dead:beeb::/48"
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "10m",
+    "max-file": "3"
+  }
+}
+
+```
 
 ## Cool Things
 
