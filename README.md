@@ -11,6 +11,7 @@ Login as root via Webconsole
 ```
 apt-get update
 apt-get upgrade
+apt-get install curl pydf unzip git apparmor-utils
 ```
 
 ## Edit Hostname
@@ -62,9 +63,9 @@ Port 2345
 Protocol 2
 
 AllowGroups sshuser
-PasswordAuthentication yes
-#AuthenticationMethods publickey
-#PubkeyAuthentication yes
+PasswordAuthentication no
+AuthenticationMethods publickey
+PubkeyAuthentication yes
 PermitRootLogin no
 PermitEmptyPasswords no
 UsePAM no
@@ -85,3 +86,41 @@ PrintMotd yes
 AcceptEnv LANG LC_*
 Subsystem       sftp    /usr/lib/openssh/sftp-server
 ```
+## Color Bash
+
+sudo nano ~/.bashrc
+
+remove comment in front of $force_color 
+
+## Nano color
+
+sudo mkdir /usr/share/nanorc
+cd /usr/share/nanorc
+sudo git clone https://github.com/scopatz/nanorc.git .
+add include "/usr/share/nanorc/*.nanorc" to /etc/nanorc
+
+## Change root password
+
+sudo passwd root
+
+## Apticron 
+
+ sudo apt install apticron
+ sudo dpkg-reconfigure apticron
+ sudo cp /usr/lib/apticron/apticron.conf ./apticron.conf
+ 
+## Mails
+
+Problem in Anleitung: Keine " in /etc/mail.rc
+
+Needed for Apticron
+
+https://decatec.de/linux/linux-einfach-e-mails-versenden-mit-msmtp/
+ 
+## ip tables
+
+
+
+## Cool Things
+
+openssl passwd -6 -salt dddddddd
