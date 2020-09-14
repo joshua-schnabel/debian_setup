@@ -152,6 +152,8 @@ https://docs.docker.com/engine/install/linux-postinstall/
   }
 }
 
+https://docs.docker.com/compose/install/
+
 ```
 
 ## Cool Things
