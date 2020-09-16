@@ -155,6 +155,10 @@ https://docs.docker.com/engine/install/linux-postinstall/
 https://docs.docker.com/compose/install/
 
 ```
+## ACME.sh
+
+acme.sh --issue -d s4.1js.de -d xmpp.1js.de -w /media/data/docker/volumes/nginx/webroot --keylength ec-256 --cert-file /media/data/certs/cert.pem --key-file /media/data/certs/key.pem  --fullchain-file /media/data/certs/fullchain.pem --reloadcmd "/media/data/certs/certHook.sh"
+
 
 ## Cool Things
 
