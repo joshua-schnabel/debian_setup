@@ -98,7 +98,7 @@ Subsystem       sftp    /usr/lib/openssh/sftp-server
 ```
 sudo nano ~/.bashrc
 ```
-remove comment in front of $force_color
+remove comment in front of `$force_color`
 
 * nano
 ```
@@ -106,7 +106,7 @@ sudo mkdir /usr/share/nanorc
 cd /usr/share/nanorc
 sudo git clone https://github.com/scopatz/nanorc.git .
 ```
-add include "/usr/share/nanorc/*.nanorc" to /etc/nanorc
+add include `/usr/share/nanorc/*.nanorc` to `/etc/nanorc`
 
 
 ### Change root password
@@ -118,11 +118,11 @@ sudo passwd root
 
 ### Automatic notification of package updates with Apticron
 
-
-
- sudo apt install apticron
- sudo dpkg-reconfigure apticron
- sudo cp /usr/lib/apticron/apticron.conf ./apticron.conf
+```
+sudo apt install apticron
+sudo dpkg-reconfigure apticron
+sudo cp /usr/lib/apticron/apticron.conf ./apticron.conf
+```
 
 ### Mails
 
