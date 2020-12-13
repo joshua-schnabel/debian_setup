@@ -116,14 +116,6 @@ sudo passwd root
 ```
 
 
-### Automatic notification of package updates with Apticron
-
-```
-sudo apt install apticron
-sudo dpkg-reconfigure apticron
-sudo cp /usr/lib/apticron/apticron.conf ./apticron.conf
-```
-
 ### Mails
 
 Needed for Apticron or any other local email sender, e.g. for own cron jobs.
@@ -132,6 +124,14 @@ Problem in instructions: No `"` in /etc/mail.rc
 
 
 https://decatec.de/linux/linux-einfach-e-mails-versenden-mit-msmtp/
+
+### Automatic notification of package updates with Apticron
+
+```
+sudo apt install apticron
+sudo dpkg-reconfigure apticron
+sudo cp /usr/lib/apticron/apticron.conf /etc/apticron/apticron.conf
+```
 
 ### Rootkit-Detection with rkhunter
 
@@ -148,6 +148,15 @@ SCRIPTWHITELIST=/usr/bin/fgrep
 SCRIPTWHITELIST=/usr/bin/which
 PKGMGR=DPKG
 MAIL-ON-WARNING
+```
+
+Edit  /etc/default/rkhunter
+
+```
+CRON_DAILY_RUN="true"
+CRON_DB_UPDATE="true"
+DB_UPDATE_EMAIL="true"
+REPORT_EMAIL="rkhunter@example.de"
 ```
 
 ### Configure iptables  
@@ -170,6 +179,7 @@ https://gist.github.com/jirutka/3742890
 ### Docker
 
 [Basic installation steps](https://docs.docker.com/engine/install/debian/)
+
 [Post installation steps](https://docs.docker.com/engine/install/linux-postinstall/)
 
 Enable ipv6 in `/etc/docker/daemon.json`:
