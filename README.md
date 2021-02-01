@@ -159,6 +159,8 @@ DB_UPDATE_EMAIL="true"
 REPORT_EMAIL="rkhunter@example.de"
 ```
 
+Run `sudo rkhunter --propupd` and `rkhunter -c`
+
 ### Configure iptables  
 
 Enable persistent iptables:
