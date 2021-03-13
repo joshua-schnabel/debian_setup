@@ -58,6 +58,7 @@ usermod -aG sshuser username
 ```
 
 Generate ssh key on client via putty gen with 8192
+Add the key to .ssh/authorized_keys
 
 ### SSHD Config
 
@@ -106,7 +107,7 @@ sudo mkdir /usr/share/nanorc
 cd /usr/share/nanorc
 sudo git clone https://github.com/scopatz/nanorc.git .
 ```
-add include `/usr/share/nanorc/*.nanorc` to `/etc/nanorc`
+add `include "/usr/share/nanorc/*.nanorc"` to `/etc/nanorc`
 
 
 ### Change root password
@@ -133,6 +134,9 @@ sudo dpkg-reconfigure apticron
 sudo cp /usr/lib/apticron/apticron.conf /etc/apticron/apticron.conf
 ```
 
+Edit Field EMAIL 
+
+
 ### Rootkit-Detection with rkhunter
 
 ```
@@ -147,7 +151,7 @@ SCRIPTWHITELIST=/usr/bin/egrep
 SCRIPTWHITELIST=/usr/bin/fgrep
 SCRIPTWHITELIST=/usr/bin/which
 PKGMGR=DPKG
-MAIL-ON-WARNING
+MAIL-ON-WARNING <- add your reciever email adress
 ```
 
 Edit  /etc/default/rkhunter
