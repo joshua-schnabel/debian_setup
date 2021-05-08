@@ -119,7 +119,7 @@ sudo passwd root
 
 ### Mails
 
-Needed for Apticron or any other local email sender, e.g. for own cron jobs.
+Needed for cron or any other local email sender, e.g. for own cron jobs.
 
 Problem in instructions: No `"` in /etc/mail.rc
 
@@ -161,6 +161,7 @@ CRON_DAILY_RUN="true"
 CRON_DB_UPDATE="true"
 DB_UPDATE_EMAIL="true"
 REPORT_EMAIL="rkhunter@example.de"
+APT_AUTOGEN="true"
 ```
 
 Run `sudo rkhunter --propupd` and `rkhunter -c`
