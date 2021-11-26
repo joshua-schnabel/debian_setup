@@ -168,6 +168,8 @@ Run `sudo rkhunter --propupd` and `rkhunter -c`
 
 ### Configure iptables  
 
+https://wiki.debian.org/iptables
+
 Enable persistent iptables:
 
 ```
