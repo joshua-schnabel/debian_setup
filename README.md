@@ -196,6 +196,8 @@ Enable ipv6 in `/etc/docker/daemon.json`:
 ```
 {
   "ipv6": true,
+  "ip6tables": true,
+  "experimental": true,
   "fixed-cidr-v6": "fd00:dead:beeb::/48",
   "log-driver": "json-file",
   "log-opts": {
