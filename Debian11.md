@@ -64,6 +64,8 @@ Add the key to .ssh/authorized_keys
 
 Example configuration for sshd. Sets the ssh-port to 2345:
 
+nano /etc/ssh/sshd_config
+
 ```
 Port 2345
 Protocol 2
@@ -109,6 +111,9 @@ sudo git clone https://github.com/scopatz/nanorc.git .
 ```
 add `include "/usr/share/nanorc/*.nanorc"` to `/etc/nanorc`
 
+oder 
+
+`curl https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh | sh`
 
 ### Change root password
 
@@ -170,10 +175,19 @@ Run `sudo rkhunter --propupd` and `rkhunter -c`
 
 https://wiki.debian.org/iptables
 
+Reenable
+
+apt install -y iptables arptables ebtables
+
+update-alternatives --set iptables /usr/sbin/iptables-legacy
+update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+update-alternatives --set arptables /usr/sbin/arptables-legacy
+update-alternatives --set ebtables /usr/sbin/ebtables-legacy
+
 Enable persistent iptables:
 
 ```
-apt-get install iptables-persistent
+apt install iptables-persistent
 ```
 
 Simple start-configuration for ipv4 aswell as ipv6:
@@ -198,7 +212,7 @@ Enable ipv6 in `/etc/docker/daemon.json`:
   "ipv6": true,
   "ip6tables": true,
   "experimental": true,
-  "fixed-cidr-v6": "fd00:dead:beeb::/48",
+  "fixed-cidr-v6": "fd11:5ca1:ab1e::/48",
   "log-driver": "json-file",
   "log-opts": {
     "max-size": "10m",
