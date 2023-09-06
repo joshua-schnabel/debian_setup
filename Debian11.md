@@ -13,7 +13,7 @@ Login as root via Webconsole
 ```
 apt-get update
 apt-get upgrade
-apt-get install curl pydf unzip git apparmor-utils
+apt-get install curl pydf unzip git apparmor-utils sudo
 ```
 
 ### Edit Hostname
@@ -196,6 +196,20 @@ https://gist.github.com/jirutka/3742890
 
 **Addition**: Switch ssh-Port to 2345 (or another port, as specified in the ssh config).
 
+## Network
+
+nano /etc/network/interfaces
+```
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet dhcp
+
+iface eth0 inet6 dhcp
+    post-up echo 2 > /proc/sys/net/ipv6/conf/eth0/accept_ra
+```
+
 
 ## Installation and configuration of docker
 
@@ -212,7 +226,14 @@ Enable ipv6 in `/etc/docker/daemon.json`:
   "ipv6": true,
   "ip6tables": true,
   "experimental": true,
-  "fixed-cidr-v6": "fd11:5ca1:ab1e::/48",
+  "default-address-pools" : [
+    {
+      "base" : "172.17.0.0/12",
+      "size" : 24
+    }
+  ],
+  "fixed-cidr": "172.17.0.0/24",
+  "fixed-cidr-v6": "fd01:0000:10CA:1001::1/64",
   "log-driver": "json-file",
   "log-opts": {
     "max-size": "10m",
