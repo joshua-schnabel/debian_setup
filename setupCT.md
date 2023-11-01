@@ -14,3 +14,6 @@ remove comment in front of $force_color
 ```
 curl https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh | sh
 ```
+```
+git config --global credential.helper store
+```
