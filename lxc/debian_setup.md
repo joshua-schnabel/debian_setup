@@ -5,7 +5,7 @@
 ````bash
 apt update
 apt upgrade
-apt install curl pydf git sudo figlet resolvconf
+apt install curl pydf git sudo figlet resolvconf lsb-release
 ````
 
 ### Fix Resolver
@@ -339,4 +339,9 @@ PKG_UPDATES=$(apt list --upgradable 2>/dev/null | wc -l)
 PKG_SECURITY=$(apt list --upgradable 2>/dev/null | grep -i security | wc -l)
 print_value "Packages:" "Installed: $PKG_INSTALLED, Updates: $PKG_UPDATES, Security: $PKG_SECURITY"
 print_value "Reboot Necessary:" "$(if [ -f /var/run/reboot-required ]; then echo Yes; else echo No; fi)"
+````
+
+````
+chmod +x /etc/update-motd.d/10-banner
+chmod +x /etc/update-motd.d/20-sysinfo
 ````
