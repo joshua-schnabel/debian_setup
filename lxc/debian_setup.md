@@ -200,11 +200,11 @@ echo "$codename $version"
 echo ""
 ````
 
-````
+````bash
 nano /etc/update-motd.d/20-sysinfo
 ````
 
-````
+````bash
 #!/bin/bash
 
 # Define colors
